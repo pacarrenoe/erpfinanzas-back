@@ -28,18 +28,20 @@ public class AppUserEntity {
     @Column(name = "last_login_at")
     private LocalDateTime lastLoginAt;
 
+    @Column(nullable = false)
+    private String role;
+
     public AppUserEntity() {
     }
 
-    public AppUserEntity(UUID id, String email, String passwordHash,
-                         String displayName, LocalDateTime createdAt,
-                         LocalDateTime lastLoginAt) {
+    public AppUserEntity(UUID id, String email, String passwordHash, String displayName, LocalDateTime createdAt, LocalDateTime lastLoginAt, String role) {
         this.id = id;
         this.email = email;
         this.passwordHash = passwordHash;
         this.displayName = displayName;
         this.createdAt = createdAt;
         this.lastLoginAt = lastLoginAt;
+        this.role = role;
     }
 
     public UUID getId() {
@@ -88,5 +90,13 @@ public class AppUserEntity {
 
     public void setLastLoginAt(LocalDateTime lastLoginAt) {
         this.lastLoginAt = lastLoginAt;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
